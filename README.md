@@ -35,3 +35,44 @@ React employs a diffing algorithm when comparing the Virtual DOM with the real D
 By abstracting away the direct manipulation of the DOM, React provides a more predictable way of managing the state of the UI. Developers work with the state of components, and React takes care of translating those state changes into DOM updates. This separation of concerns simplifies the development process and makes it easier to reason about the behavior of the application.
 
 # Render and Commit
+
+Requesting and serving UI in React has three steps:
+
+1. Triggering a render.
+2. Rendering the component.
+3. Committing to the DOM.
+
+## Step 1: Trigger a Render
+
+Components in React render for two reasons:
+
+1. Initial render: When a component is first mounted in the DOM.
+2. Re-render: When a component's state or one of its ancestors state changes.
+
+Once a component has been mounted, you can trigger further renders by updating its state by calling `setState()`. Updating a component's state queues a render.
+
+## Step 2: Rendering the component
+
+Rendering is React calling your components.
+
+On initial render, React will call the root component.
+
+For renders after the initial render, React will call the component whose state has changed, and any of its children. The process of calling functions is recursive.
+
+## Pitfall
+
+Rendering must always be a pure function. It should not have any side effects. It should not change the state of the component or the DOM. Side effects go in useEffect. The render function itself, if not pure, it will cause unpredictable behavior. That's why React StrictMode exist during development.
+
+From React's official documentation:
+
+> When developing in “Strict Mode”, React calls each component’s function twice, which can help surface mistakes caused by impure functions.
+
+## Step 3: React commits changes to the DOM
+
+When React displays your components on the screen for the first time, it uses a method called `appendChild()` to add all the elements it created to the webpage.
+
+If your components need to be updated or re-displayed because of changes, React smartly figures out the least amount of work needed to make these updates happen.
+
+It only makes changes to the parts of the webpage that actually need to be updated.
+
+React does this by comparing the new version of your components with the previous one and only updates the differences.
