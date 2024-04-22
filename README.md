@@ -76,3 +76,23 @@ If your components need to be updated or re-displayed because of changes, React 
 It only makes changes to the parts of the webpage that actually need to be updated.
 
 React does this by comparing the new version of your components with the previous one and only updates the differences.
+
+one thing i never understood when working with react is when using useRef, i know it doesn't trigger a re render
+
+but how does it always stay one time behind the useState, when building custom hooks, that's the thing i never got
+
+i would always assume that the initial state of both useState and useRef would be the same when building custom hooks?
+
+I'm referring to the pattern where you use useRef to keep track of the previous value
+
+---
+
+Hi Gianmarco,
+
+I applied for the Frontend developer position at PurpleFire.
+
+I bring extensive frontend experience, specializing in Accessibility, React, and Testing.
+
+I also have fullstack and cloud experience, making me a T shaped candidate who specializes in frontend but has done real fullstack engineering.
+
+Would love to chat!
