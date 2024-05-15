@@ -117,4 +117,5 @@ The Promise object returned by the constructor has an internal `[[PromiseState]]
 - Each promise instance requires memory allocation to store its state, result and associated callbacks. This overhead can add up if you have a large number of promises.
 - Promises use more memory than callbacks because they store additional state information
 - JS engine need to manage lifecycle of promises
--
+- `.then` creates a new promise instance, adding to the memory footprint. Deeply nested promise chains can lead to a large number of promise instances in memory.
+- Promises are stored in the heap until they are resolved or rejected.
