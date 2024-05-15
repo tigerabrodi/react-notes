@@ -119,3 +119,9 @@ The Promise object returned by the constructor has an internal `[[PromiseState]]
 - JS engine need to manage lifecycle of promises
 - `.then` creates a new promise instance, adding to the memory footprint. Deeply nested promise chains can lead to a large number of promise instances in memory.
 - Promises are stored in the heap until they are resolved or rejected.
+
+# Specific problem
+
+To make something much more performant, you look at the thing you're trying to accomplish. Than you really narrow down and ask yourself: What is the fastest and shortest way to do this?
+
+Optimizing for performance is doing less work before you decide to do more work such as using Performance APIs.
